@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JSON 2 HTML</title>
+    <meta charset="utf-8">
+    <link href="css/modern-normalize.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/modal.css" rel="stylesheet" type="text/css">
+    <script src="js/util.js" type="text/javascript"></script>
+    <script src="js/extended-types.js" type="text/javascript"></script>
+    <script src="js/tree.js" type="text/javascript"></script>
+    <script src="js/render.js" type="text/javascript"></script>
+    <script src="js/modal.js" type="text/javascript"></script>
+    <script src="js/statistics.js" type="text/javascript"></script>
+    <script src="js/parse.js" type="text/javascript"></script>
+    <script src="js/output.js" type="text/javascript"></script>
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+  </head>
+  <body>
+    <div id="header">
+      <img alt="json 2 html" src="images/logo.png" />
+    </div>
+
+    <form onsubmit="doParse(); return false;">
+      <p>
+        此页面提供了一种可视化JSON文本字符串的简单方法。
+        在文本区域中放入一些JSON，此页面会立即将文本显示为一组嵌套框，
+        对应于JSON字符串中的对象、数组和值。<br>
+        您也可以将URL粘贴到文本区域中，JSON字符串将从该URL加载。
+      </p>
+      <p>
+        JSON 2 HTML是开源的，并在MIT许可证下发布-
+        <a href="http://github.com/bloopletech/json2html/tree/master">获取Github源代码</a>. 欢迎修补程序/改进！
+      </p>
+      <code>
+        <textarea id="text" rows="12" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+      </code>
+      <input id="submit" onclick="doParse(); return false;" type="submit" value="格式化">
+      <input id="reset" type="button" value="重置">
+    </form>
+
+    <hr>
+
+    <div id="output"></div>
+
+    <div id="footer">
+      Check out my portfolio at
+      <a href="http://i.bloople.net">i.bloople.net</a>. &copy; Brenton Fletcher. Comments? e-mail me:
+      <a href="mailto:i@bloople.net">i@bloople.net</a>.
+    </div>
+
+    <div id="focus">
+      <div id="focus-output">
+        <div>
+          <label>属性路径:</label> <code id="focus-path"></code>
+        </div>
+        <div>
+          <label>路径追踪:</label> <span id="focus-trail"></span>
+        </div>
+        <div>
+          <label>数据类型:</label> <span id="focus-type"></span><span id="focus-extended-type"></span>
+        </div>
+      </div>
+      <div id="actions">
+        <input type="button" id="show-stats" value="数据统计" disabled>
+        <input type="button" id="show-help" value="帮助">
+      </div>
+    </div>
+
+    <div id="help-content">
+      <h3>JSON</h3>
+      <p>
+        <img id="json-logo" alt="JSON logo" src="images/json.gif">
+        <i>引用来自这里的主页.<a href="http://www.json.org/">JSON</a></i><br>
+        JSON (JavaScript Object Notation) 是一种轻量级的数据交换格式。非常直观清楚。计算机也很容易解析数据和生成数据。
+      </p>
+      <h3>语法突出显示</h3>
+      <p>
+        <span class="string">Colour for text and null values.</span><br>
+        <span class="number">Colour for numbers.</span><br>
+        <span class="boolean">Colour for true and false values.</span><br>
+        <span class="void">Colour for void values.</span><br>
+        <img class="ex" src="images/object.png" />
+        Background for Objects.<br>
+        <img class="ex" src="images/array.png" />
+        Background for Arrays.<br>
+        <img class="ex" src="images/objectt.png" />
+        Background for Object name/value pair tables.<br>
+        <img class="ex" src="images/arrayt.png" />
+        Background for Array value tables.</p>
+      <h3>注意</h3>
+      <p>
+        超长的单个“单词”可以分成两行或更多行，以节省水平空间。
+      </p>
+    </div>
+  </body>
+</html>
